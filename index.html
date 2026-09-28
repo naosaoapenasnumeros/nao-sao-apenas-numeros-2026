@@ -9,7 +9,7 @@
 <style>
 
 /* =========================================================
-   CONFIGURAÇÕES GERAIS
+   CONFIGURAÇÕES
 ========================================================= */
 
 * {
@@ -46,20 +46,14 @@ body {
     overflow: hidden;
 
     background:
-        radial-gradient(
-            circle at center,
-            #5e1881 0%,
-            #2a0740 35%,
-            #100018 70%,
-            #030006 100%
-        );
+        radial-gradient(circle at 50% 50%, #4f146e 0%, #250637 38%, #0d0017 72%, #020005 100%);
 
     transition: opacity .8s ease;
 }
 
 
 /* =========================================================
-   UNIVERSO
+   CÉU ESTRELADO DA CAPA
 ========================================================= */
 
 .universo {
@@ -70,7 +64,7 @@ body {
 }
 
 
-/* estrelas normais */
+/* estrelas fixas */
 
 .estrela {
     position: absolute;
@@ -84,14 +78,120 @@ body {
 
     box-shadow:
         0 0 5px white,
-        0 0 12px rgba(210,150,255,.8);
+        0 0 12px rgba(210,150,255,.9);
 
     opacity: .8;
+
+    animation: brilhoEstrela 2.5s ease-in-out infinite alternate;
+}
+
+
+/* estrelas maiores */
+
+.estrela.grande {
+    width: 4px;
+    height: 4px;
+
+    box-shadow:
+        0 0 7px white,
+        0 0 18px #d69cff;
+}
+
+
+/* formato de cruz */
+
+.estrela.cruz::before,
+.estrela.cruz::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: rgba(255,255,255,.8);
+}
+
+.estrela.cruz::before {
+    width: 14px;
+    height: 1px;
+}
+
+.estrela.cruz::after {
+    width: 1px;
+    height: 14px;
+}
+
+
+@keyframes brilhoEstrela {
+
+    0% {
+        opacity: .25;
+        transform: scale(.7);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: .4;
+        transform: scale(.8);
+    }
+}
+
+
+/* brilho suave no fundo */
+
+.nuvem-estelar {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(165,70,220,.15),
+            transparent 68%
+        );
+
+    filter: blur(35px);
+
+    animation: nuvemMover 10s ease-in-out infinite alternate;
+}
+
+.nuvem1 {
+    left: -180px;
+    top: -180px;
+}
+
+.nuvem2 {
+    right: -200px;
+    bottom: -200px;
+    animation-delay: 3s;
+}
+
+@keyframes nuvemMover {
+
+    from {
+        transform: translate(0,0) scale(1);
+    }
+
+    to {
+        transform: translate(50px,30px) scale(1.15);
+    }
 }
 
 
 /* =========================================================
-   ESTRELAS DA VIAGEM
+   ESTRELAS DA ANIMAÇÃO DE ENTRADA
+   NÃO ALTERAR — ESSA É A VIAGEM ESPACIAL
 ========================================================= */
 
 .viagem-estrelas {
@@ -126,11 +226,7 @@ body {
         translateZ(0);
 
     opacity: 0;
-
 }
-
-
-/* quando começa a viagem */
 
 #capaEntrada.viajando .viagem-estrela {
 
@@ -148,6 +244,7 @@ body {
 
     0% {
         opacity: 0;
+
         width: 2px;
         height: 2px;
 
@@ -176,7 +273,7 @@ body {
 
 
 /* =========================================================
-   TÚNEL ESPACIAL
+   TÚNEL DA VIAGEM
 ========================================================= */
 
 .tunel {
@@ -223,6 +320,7 @@ body {
 
     0% {
         opacity: 0;
+
         transform:
             translate(-50%, -50%)
             scale(.05)
@@ -247,8 +345,6 @@ body {
     }
 }
 
-
-/* vários anéis do túnel */
 
 .tunel::before,
 .tunel::after {
@@ -284,7 +380,7 @@ body {
 
 
 /* =========================================================
-   NÚCLEO DE LUZ
+   NÚCLEO DA VIAGEM
 ========================================================= */
 
 .nucleo {
@@ -311,8 +407,6 @@ body {
             transparent 72%
         );
 
-    filter: blur(1px);
-
     box-shadow:
         0 0 30px white,
         0 0 80px #bd61ef,
@@ -323,6 +417,15 @@ body {
         2.5s
         ease-in-out
         infinite;
+}
+
+
+/* o núcleo só serve para a viagem.
+   na capa ele fica praticamente escondido */
+
+.nucleo {
+    opacity: .18;
+    filter: blur(5px);
 }
 
 
@@ -344,6 +447,8 @@ body {
 
 #capaEntrada.viajando .nucleo {
 
+    opacity: 1;
+
     animation:
         explodirNucleo
         1.5s
@@ -358,6 +463,7 @@ body {
         transform:
             translate(-50%, -50%)
             scale(1);
+
         opacity: 1;
     }
 
@@ -365,6 +471,7 @@ body {
         transform:
             translate(-50%, -50%)
             scale(35);
+
         opacity: 0;
     }
 }
@@ -394,8 +501,8 @@ body {
 
 .capa-simbolo {
 
-    width: 85px;
-    height: 85px;
+    width: 82px;
+    height: 82px;
 
     margin: 0 auto 20px;
 
@@ -405,21 +512,16 @@ body {
 
     border-radius: 50%;
 
-    background: rgba(255,255,255,.08);
+    background:
+        rgba(255,255,255,.05);
 
     border:
-        1px solid rgba(255,255,255,.3);
+        1px solid rgba(255,255,255,.25);
 
     box-shadow:
-        0 0 35px rgba(210,130,255,.5);
+        0 0 25px rgba(210,130,255,.2);
 
-    font-size: 42px;
-
-    animation:
-        flutuar
-        3s
-        ease-in-out
-        infinite;
+    font-size: 40px;
 }
 
 
@@ -543,15 +645,12 @@ body {
 
     color: #55156d;
 
-    transform:
-        scale(1.06);
+    transform: scale(1.06);
 
     box-shadow:
         0 10px 40px rgba(0,0,0,.3);
 }
 
-
-/* desaparecimento do conteúdo */
 
 #capaEntrada.viajando .capa-conteudo {
 
@@ -582,29 +681,11 @@ body {
 }
 
 
-/* saída total da capa */
-
 #capaEntrada.finalizada {
 
     opacity: 0;
 
     pointer-events: none;
-}
-
-
-/* =========================================================
-   ANIMAÇÕES
-========================================================= */
-
-@keyframes flutuar {
-
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
 }
 
 
@@ -647,9 +728,7 @@ header {
 
     backdrop-filter: blur(10px);
 
-    color: white;
-
-    padding: 15px 20px;
+    padding: 14px 20px;
 
     box-shadow:
         0 3px 15px rgba(0,0,0,.15);
@@ -666,7 +745,7 @@ nav {
 
     justify-content: center;
 
-    gap: 22px;
+    gap: 20px;
 
     flex-wrap: wrap;
 }
@@ -681,6 +760,8 @@ nav a {
     font-size: 14px;
 
     font-weight: bold;
+
+    padding: 7px 4px;
 
     transition: .2s;
 }
@@ -699,7 +780,7 @@ nav a:hover {
 .hero {
 
     padding:
-        100px 20px;
+        90px 20px 70px;
 
     text-align: center;
 
@@ -733,6 +814,106 @@ nav a:hover {
     line-height: 1.8;
 
     font-size: 18px;
+}
+
+
+/* =========================================================
+   ACESSO RÁPIDO
+========================================================= */
+
+.acesso {
+
+    max-width: 1050px;
+
+    margin:
+        -10px auto 0;
+
+    padding:
+        0 20px 55px;
+}
+
+
+.acesso-titulo {
+
+    text-align: center;
+
+    color: #541667;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    margin-bottom: 22px;
+}
+
+
+.acesso-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(150px, 1fr));
+
+    gap: 14px;
+}
+
+
+.acesso-botao {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 105px;
+
+    padding: 15px;
+
+    border-radius: 17px;
+
+    border:
+        1px solid #eadcf0;
+
+    background: white;
+
+    color: #51135f;
+
+    text-decoration: none;
+
+    text-align: center;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 7px 20px rgba(66,22,80,.08);
+
+    transition: .25s;
+}
+
+
+.acesso-botao span {
+
+    display: block;
+
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+
+.acesso-botao:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 12px 25px rgba(66,22,80,.15);
+
+    background:
+        #fbf6fd;
 }
 
 
@@ -1082,54 +1263,58 @@ footer {
 @media (max-width: 600px) {
 
     .capa-conteudo {
-
         width: 88%;
     }
 
     .capa-conteudo h1 {
-
         font-size: 43px;
     }
 
     .capa-frase {
-
         font-size: 18px;
     }
 
     .capa-descricao {
-
         font-size: 14px;
     }
 
     .capa-nomes {
-
         font-size: 13px;
     }
 
     nav {
-
-        gap: 12px;
+        gap: 9px;
     }
 
     nav a {
-
         font-size: 12px;
     }
 
     section {
-
         padding:
             55px 18px;
     }
 
     .hero {
-
         padding:
-            70px 18px;
+            65px 18px 50px;
+    }
+
+    .acesso {
+        padding:
+            0 18px 45px;
+    }
+
+    .acesso-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .acesso-botao {
+        min-height: 100px;
     }
 
     .quiz {
-
         padding: 22px;
     }
 }
@@ -1142,33 +1327,83 @@ footer {
 
 
 <!-- =======================================================
-     CAPA / UNIVERSO
+     CAPA
 ======================================================= -->
 
 <div id="capaEntrada">
 
     <div class="universo">
 
-        <!-- estrelas normais -->
+        <!-- estrelas do céu -->
 
-        <span class="estrela" style="left:5%;top:12%"></span>
-        <span class="estrela" style="left:12%;top:70%"></span>
-        <span class="estrela" style="left:22%;top:25%"></span>
-        <span class="estrela" style="left:31%;top:82%"></span>
-        <span class="estrela" style="left:42%;top:12%"></span>
-        <span class="estrela" style="left:53%;top:75%"></span>
-        <span class="estrela" style="left:64%;top:18%"></span>
-        <span class="estrela" style="left:74%;top:62%"></span>
-        <span class="estrela" style="left:85%;top:13%"></span>
-        <span class="estrela" style="left:94%;top:78%"></span>
-        <span class="estrela" style="left:18%;top:48%"></span>
-        <span class="estrela" style="left:37%;top:45%"></span>
-        <span class="estrela" style="left:69%;top:45%"></span>
-        <span class="estrela" style="left:80%;top:34%"></span>
+        <span class="estrela grande cruz"
+              style="left:7%;top:15%"></span>
 
-        <!-- estrelas da viagem -->
+        <span class="estrela"
+              style="left:14%;top:68%"></span>
 
-        <div class="viagem-estrelas" id="viagemEstrelas"></div>
+        <span class="estrela grande"
+              style="left:23%;top:25%"></span>
+
+        <span class="estrela"
+              style="left:31%;top:83%"></span>
+
+        <span class="estrela cruz"
+              style="left:42%;top:12%"></span>
+
+        <span class="estrela"
+              style="left:54%;top:76%"></span>
+
+        <span class="estrela grande"
+              style="left:64%;top:18%"></span>
+
+        <span class="estrela"
+              style="left:74%;top:64%"></span>
+
+        <span class="estrela cruz"
+              style="left:85%;top:14%"></span>
+
+        <span class="estrela grande"
+              style="left:94%;top:78%"></span>
+
+        <span class="estrela"
+              style="left:18%;top:48%"></span>
+
+        <span class="estrela grande"
+              style="left:36%;top:43%"></span>
+
+        <span class="estrela"
+              style="left:69%;top:46%"></span>
+
+        <span class="estrela grande cruz"
+              style="left:80%;top:34%"></span>
+
+        <span class="estrela"
+              style="left:55%;top:31%"></span>
+
+        <span class="estrela"
+              style="left:91%;top:46%"></span>
+
+        <span class="estrela"
+              style="left:3%;top:45%"></span>
+
+        <span class="estrela grande"
+              style="left:46%;top:89%"></span>
+
+
+        <!-- brilho espacial -->
+
+        <div class="nuvem-estelar nuvem1"></div>
+
+        <div class="nuvem-estelar nuvem2"></div>
+
+
+        <!-- estrelas que aceleram -->
+
+        <div
+            class="viagem-estrelas"
+            id="viagemEstrelas">
+        </div>
 
     </div>
 
@@ -1177,12 +1412,13 @@ footer {
 
     <div class="tunel"></div>
 
+
     <!-- núcleo -->
 
     <div class="nucleo"></div>
 
 
-    <!-- conteúdo -->
+    <!-- conteúdo da capa -->
 
     <div class="capa-conteudo">
 
@@ -1235,8 +1471,7 @@ footer {
 
         <button
             class="botao-entrar"
-            id="botaoEntrar"
-        >
+            id="botaoEntrar">
 
             ENTRAR NO PROJETO →
 
@@ -1259,33 +1494,19 @@ footer {
 
 <nav>
 
-<a href="#inicio">
-Início
-</a>
+<a href="#inicio">Início</a>
 
-<a href="#projeto">
-O projeto
-</a>
+<a href="#projeto">O projeto</a>
 
-<a href="#violencia">
-Violência
-</a>
+<a href="#violencia">Violência</a>
 
-<a href="#dados">
-Dados
-</a>
+<a href="#dados">Dados</a>
 
-<a href="#digital">
-Violência digital
-</a>
+<a href="#digital">Violência digital</a>
 
-<a href="#ajuda">
-Como ajudar
-</a>
+<a href="#ajuda">Ajuda</a>
 
-<a href="#quiz">
-Quiz
-</a>
+<a href="#quiz">Questionário</a>
 
 </nav>
 
@@ -1317,6 +1538,92 @@ prevenir e ajudar a combater a violência
 contra as mulheres.
 
 </p>
+
+</div>
+
+
+
+<!-- =======================================================
+     ACESSO RÁPIDO
+======================================================= -->
+
+<div class="acesso">
+
+<div class="acesso-titulo">
+Por onde você quer começar?
+</div>
+
+
+<div class="acesso-grid">
+
+
+<a
+class="acesso-botao"
+href="#projeto">
+
+<span>💜</span>
+
+Conhecer o projeto
+
+</a>
+
+
+<a
+class="acesso-botao"
+href="#violencia">
+
+<span>🚨</span>
+
+Tipos de violência
+
+</a>
+
+
+<a
+class="acesso-botao"
+href="#dados">
+
+<span>📊</span>
+
+Ver os dados
+
+</a>
+
+
+<a
+class="acesso-botao"
+href="#digital">
+
+<span>📱</span>
+
+Violência digital
+
+</a>
+
+
+<a
+class="acesso-botao"
+href="#ajuda">
+
+<span>🛡️</span>
+
+Quero ajuda
+
+</a>
+
+
+<a
+class="acesso-botao"
+href="#quiz">
+
+<span>🧠</span>
+
+Questionário
+
+</a>
+
+
+</div>
 
 </div>
 
@@ -1362,7 +1669,6 @@ reconhecer diferentes formas de violência.
 </div>
 
 
-
 <div class="card">
 
 <h3>
@@ -1381,7 +1687,6 @@ formas de abuso.
 </p>
 
 </div>
-
 
 
 <div class="card">
@@ -1449,7 +1754,6 @@ chutes e outras agressões.
 </div>
 
 
-
 <div class="card">
 
 <h3>
@@ -1465,7 +1769,6 @@ que prejudicam a autoestima.
 </p>
 
 </div>
-
 
 
 <div class="card">
@@ -1485,7 +1788,6 @@ econômicos.
 </div>
 
 
-
 <div class="card">
 
 <h3>
@@ -1501,7 +1803,6 @@ a dignidade da mulher.
 </p>
 
 </div>
-
 
 
 <div class="card">
@@ -1556,33 +1857,25 @@ e uma história.
 
 <div class="numero">
 
-<strong>
-848
-</strong>
+<strong>848</strong>
 
 casos analisados pelo projeto
 
 </div>
 
 
-
 <div class="numero">
 
-<strong>
-46
-</strong>
+<strong>46</strong>
 
 registros destacados
 
 </div>
 
 
-
 <div class="numero">
 
-<strong>
-139
-</strong>
+<strong>139</strong>
 
 situações identificadas
 
@@ -1642,7 +1935,6 @@ sem autorização.
 </div>
 
 
-
 <div class="card">
 
 <h3>
@@ -1658,7 +1950,6 @@ graves e pode configurar crime.
 </p>
 
 </div>
-
 
 
 <div class="card">
@@ -1684,10 +1975,10 @@ devem ser levadas a sério.
 
 
 <!-- =======================================================
-     MITOS
+     MITOS E VERDADES
 ======================================================= -->
 
-<section>
+<section id="mitos">
 
 <h2>
 ❓ Mitos e verdades
@@ -1715,7 +2006,6 @@ demonstrações saudáveis de amor.
 </div>
 
 
-
 <div class="card">
 
 <h3>
@@ -1734,7 +2024,6 @@ físicas para causar danos.
 </div>
 
 
-
 <div class="card">
 
 <h3>
@@ -1751,7 +2040,6 @@ A responsabilidade pela violência
 </p>
 
 </div>
-
 
 
 <div class="card">
@@ -1783,7 +2071,9 @@ de violência.
      AJUDA
 ======================================================= -->
 
-<section class="ajuda" id="ajuda">
+<section
+class="ajuda"
+id="ajuda">
 
 <h2>
 🛡️ Como podemos ajudar?
@@ -1804,26 +2094,29 @@ serviços de proteção disponíveis.
 
 <a
 class="botao-ajuda"
-href="tel:190"
->
-🚨 Emergência — 190
+href="tel:190">
+
+🚨 Ligar para o 190
+
 </a>
 
 
 <a
 class="botao-ajuda"
-href="tel:180"
->
-📞 Central da Mulher — 180
+href="tel:180">
+
+📞 Ligar para o 180
+
 </a>
 
 
 <a
 class="botao-ajuda"
 href="https://wa.me/556196100180"
-target="_blank"
->
+target="_blank">
+
 💬 WhatsApp — Ligue 180
+
 </a>
 
 
@@ -1834,20 +2127,20 @@ target="_blank"
 
 
 <!-- =======================================================
-     QUIZ
+     QUESTIONÁRIO
 ======================================================= -->
 
 <section id="quiz">
 
 <h2>
-🧠 Teste seus conhecimentos
+🧠 Questionário
 </h2>
 
 
 <p>
 
-Responda às perguntas e veja quanto
-você aprendeu.
+Agora que você conheceu o projeto,
+teste seus conhecimentos.
 
 </p>
 
@@ -1864,14 +2157,12 @@ ser apenas física?
 
 
 <button onclick="responder(1,false)">
-A) Sim, somente agressões físicas
-são violência.
+A) Sim, somente agressões físicas são violência.
 </button>
 
 
 <button onclick="responder(1,true)">
-B) Não. Existem diferentes formas
-de violência.
+B) Não. Existem diferentes formas de violência.
 </button>
 
 </div>
@@ -1881,9 +2172,8 @@ de violência.
 <div class="pergunta">
 
 <h3>
-2. Compartilhar uma imagem íntima
-de alguém sem autorização é uma
-forma de violência?
+2. Compartilhar uma imagem íntima de alguém
+sem autorização é uma forma de violência?
 </h3>
 
 
@@ -1963,6 +2253,7 @@ B) Não.
 
 <div id="resultadoQuiz"></div>
 
+
 </div>
 
 </section>
@@ -2022,7 +2313,6 @@ Não são apenas números.
 
 </footer>
 
-
 </div>
 
 
@@ -2030,7 +2320,7 @@ Não são apenas números.
 <script>
 
 /* =========================================================
-   CRIAR CENTENAS DE ESTRELAS DA VIAGEM
+   CRIA AS ESTRELAS DA VIAGEM
 ========================================================= */
 
 const viagem =
@@ -2073,31 +2363,30 @@ for (let i = 0; i < 180; i++) {
 
 
     estrela.style.marginLeft =
-    (Math.cos(angulo * Math.PI / 180) * distancia)
-    + "px";
+        Math.cos(
+            angulo * Math.PI / 180
+        ) * distancia + "px";
 
 
     estrela.style.marginTop =
-    (Math.sin(angulo * Math.PI / 180) * distancia)
-    + "px";
+        Math.sin(
+            angulo * Math.PI / 180
+        ) * distancia + "px";
 
 
     viagem.appendChild(estrela);
-
 }
 
 
 /* =========================================================
-   ENTRAR NO PROJETO
+   ENTRADA NO PROJETO
 ========================================================= */
 
 const botao =
 document.getElementById("botaoEntrar");
 
-
 const capa =
 document.getElementById("capaEntrada");
-
 
 const projeto =
 document.getElementById("projetoSite");
@@ -2105,13 +2394,8 @@ document.getElementById("projetoSite");
 
 botao.addEventListener("click", function() {
 
-    /* começa a viagem */
-
     capa.classList.add("viajando");
 
-
-    /* depois da viagem,
-       libera o projeto */
 
     setTimeout(function() {
 
@@ -2120,7 +2404,7 @@ botao.addEventListener("click", function() {
         projeto.classList.add("aparecer");
 
         document.body.style.overflowY =
-        "auto";
+            "auto";
 
         window.scrollTo({
             top: 0,
@@ -2133,7 +2417,7 @@ botao.addEventListener("click", function() {
 
 
 /* =========================================================
-   QUIZ
+   QUESTIONÁRIO
 ========================================================= */
 
 let pontos = 0;
@@ -2165,9 +2449,9 @@ function responder(numero, correta) {
         document.getElementById(
             "resultadoQuiz"
         ).innerHTML =
-        "💜 Você acertou " +
-        pontos +
-        " de 5 perguntas!";
+            "💜 Você acertou " +
+            pontos +
+            " de 5 perguntas!";
 
     }
 
