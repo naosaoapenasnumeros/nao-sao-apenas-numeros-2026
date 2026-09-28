@@ -3,679 +3,1082 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Violência contra a Mulher | Projeto Científico</title>
-
+<title>Não são apenas números</title>
 <style>
-
-* {
-    box-sizing: border-box;
+*{
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #fff7fa;
-    color: #29232a;
-    line-height: 1.7;
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#faf7fb;
+color:#29212d;
+line-height:1.7;
 }
-
-header {
-    background: linear-gradient(135deg, #7b1e4b, #b83b6f);
-    color: white;
-    padding: 55px 20px;
-    text-align: center;
+header{
+background:linear-gradient(135deg,#5b246d,#9b4fa8);
+color:white;
+text-align:center;
+padding:65px 20px 55px;
 }
-
-header h1 {
-    font-size: 42px;
-    margin: 0 0 15px;
+header h1{
+font-size:48px;
+margin:0 0 15px;
 }
-
-header p {
-    font-size: 19px;
-    max-width: 800px;
-    margin: auto;
+header p{
+font-size:20px;
+max-width:800px;
+margin:10px auto;
 }
-
-nav {
-    background: white;
-    padding: 15px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+.container{
+width:92%;
+max-width:1050px;
+margin:auto;
 }
-
-nav a {
-    color: #7b1e4b;
-    text-decoration: none;
-    font-weight: bold;
-    margin: 0 8px;
+section{
+background:white;
+margin:30px 0;
+padding:35px;
+border-radius:18px;
+box-shadow:0 4px 18px rgba(0,0,0,.08);
 }
-
-main {
-    max-width: 1000px;
-    margin: auto;
-    padding: 25px;
+h2{
+color:#6b2b78;
+font-size:30px;
+margin-top:0;
 }
-
-section {
-    background: white;
-    margin: 25px 0;
-    padding: 30px;
-    border-radius: 18px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+h3{
+color:#783886;
 }
-
-h2 {
-    color: #7b1e4b;
-    font-size: 28px;
+.destaque{
+background:#f1dff4;
+border-left:7px solid #793889;
+padding:25px;
+border-radius:12px;
+margin:20px 0;
 }
-
-h3 {
-    color: #a12f5f;
+.numero{
+font-size:48px;
+font-weight:bold;
+color:#7b3587;
 }
-
-.destaque {
-    background: #f8dce8;
-    border-left: 6px solid #7b1e4b;
-    padding: 20px;
-    border-radius: 10px;
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
 }
-
-.alerta {
-    background: #fff0f0;
-    border-left: 6px solid #b00020;
-    padding: 20px;
-    border-radius: 10px;
+.card{
+background:#faf5fb;
+padding:22px;
+border-radius:15px;
+border:1px solid #ead8ee;
 }
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 18px;
+.card-link{
+display:block;
+text-decoration:none;
+color:#29212d;
+transition:.2s;
 }
-
-.card {
-    background: #fff4f8;
-    padding: 22px;
-    border-radius: 15px;
-    text-align: center;
+.card-link:hover{
+transform:translateY(-4px);
+box-shadow:0 7px 18px rgba(91,36,109,.15);
 }
-
-.numero {
-    font-size: 38px;
-    font-weight: bold;
-    color: #7b1e4b;
+.timeline{
+border-left:5px solid #8b4598;
+padding-left:25px;
 }
-
-.relato {
-    background: #faf0f5;
-    border-radius: 15px;
-    padding: 22px;
-    margin: 18px 0;
+.timeline article{
+margin-bottom:30px;
 }
-
-.botao {
-    display: inline-block;
-    background: #7b1e4b;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    margin: 5px;
+.ajuda{
+background:#fff2f5;
+border:2px solid #e9a6b6;
+padding:25px;
+border-radius:15px;
+margin:20px 0;
 }
-
-.botao:hover {
-    background: #a12f5f;
+.alerta{
+background:#fff5dc;
+padding:25px;
+border-radius:15px;
+border-left:7px solid #d69a18;
 }
-
-ul {
-    padding-left: 25px;
+.frase{
+text-align:center;
+font-size:25px;
+font-weight:bold;
+color:#71327d;
+padding:30px 10px;
 }
-
-footer {
-    background: #351323;
-    color: white;
-    text-align: center;
-    padding: 35px 20px;
-    margin-top: 40px;
+button,
+.botao{
+display:inline-block;
+background:#783886;
+color:white;
+border:none;
+padding:14px 20px;
+border-radius:10px;
+cursor:pointer;
+font-size:16px;
+text-decoration:none;
+transition:.2s;
 }
-
-footer a {
-    color: white;
+button:hover,
+.botao:hover{
+transform:translateY(-2px);
+opacity:.92;
 }
-
-.pequeno {
-    font-size: 14px;
-    color: #666;
+.botao-emergencia{
+background:#b3263e;
 }
-
+.botao-whatsapp{
+background:#3b8f55;
+}
+.resposta{
+display:none;
+margin-top:15px;
+padding:15px;
+background:#f1dff4;
+border-radius:10px;
+}
+.menu-ajuda{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
+margin-top:25px;
+}
+.menu-card{
+background:#fff;
+border:2px solid #ead8ee;
+border-radius:16px;
+padding:22px;
+text-decoration:none;
+color:#29212d;
+transition:.2s;
+}
+.menu-card:hover{
+transform:translateY(-4px);
+border-color:#9b4fa8;
+box-shadow:0 8px 20px rgba(91,36,109,.12);
+}
+.menu-card strong{
+display:block;
+font-size:19px;
+color:#6b2b78;
+margin-bottom:7px;
+}
+.menu-card span{
+font-size:28px;
+}
+.central-ajuda{
+background:linear-gradient(135deg,#fff2f5,#f4e7f7);
+border:2px solid #e2b6e8;
+}
+.acoes{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin-top:18px;
+}
+.quiz-pergunta{
+background:#faf5fb;
+padding:22px;
+border-radius:15px;
+border:1px solid #ead8ee;
+margin-top:20px;
+}
+.quiz-opcao{
+display:block;
+width:100%;
+text-align:left;
+margin:10px 0;
+background:white;
+color:#29212d;
+border:2px solid #ead8ee;
+}
+.quiz-opcao:hover{
+background:#f6eaf8;
+}
+.quiz-resultado{
+display:none;
+background:#f1dff4;
+padding:20px;
+border-radius:12px;
+margin-top:20px;
+}
+.mito{
+margin:18px 0;
+padding:20px;
+background:#faf5fb;
+border-radius:15px;
+border:1px solid #ead8ee;
+}
+.mito button{
+margin-top:10px;
+}
+.mito-resposta{
+display:none;
+margin-top:12px;
+padding:15px;
+border-radius:10px;
+background:#f1dff4;
+}
+.voltar{
+text-align:center;
+margin-top:20px;
+}
+footer{
+background:#32163c;
+color:white;
+text-align:center;
+padding:40px 20px;
+margin-top:50px;
+}
+footer a{
+color:white;
+}
+small{
+color:#6d626f;
+}
+@media(max-width:600px){
+header h1{
+font-size:36px;
+}
+header p{
+font-size:18px;
+}
+section{
+padding:23px;
+}
+h2{
+font-size:25px;
+}
+.numero{
+font-size:38px;
+}
+.acoes{
+flex-direction:column;
+}
+.acoes .botao{
+text-align:center;
+width:100%;
+}
+}
 </style>
 </head>
-
 <body>
-
-<header>
-
-<h1>Violência contra a Mulher</h1>
-
+<header id="inicio">
+<h1>Não são apenas números</h1>
 <p>
-Projeto científico — Como reduzir a violência contra as mulheres?
+Violência contra a mulher e feminicídio:
+informação, prevenção, proteção e conscientização.
 </p>
-
-<p>
-<strong>Informação, prevenção, proteção e educação podem salvar vidas.</strong>
-</p>
-
+<p><strong>Projeto científico — 2026</strong></p>
 </header>
+<div class="container">
+<!-- NOVA CENTRAL DE AJUDA -->
+<section id="ajuda-inicial">
+<h2>💜 Como podemos ajudar?</h2>
+<p>
+Você não precisa saber exatamente por onde começar.
+Escolha uma opção para encontrar a informação que procura.
+</p>
+<div class="menu-ajuda">
+<a class="menu-card" href="#preciso-ajuda">
+<span>🆘</span>
+<strong>Preciso de ajuda</strong>
+Encontre canais de atendimento e orientação.
+</a>
+<a class="menu-card" href="#preciso-ajuda">
+<span>🚨</span>
+<strong>Quero denunciar</strong>
+Saiba onde buscar orientação e registrar uma denúncia.
+</a>
+<a class="menu-card" href="#quiz">
+<span>🧠</span>
+<strong>Quero entender se isso é violência</strong>
+Conheça sinais e diferentes formas de violência.
+</a>
+<a class="menu-card" href="#violencia-digital">
+<span>📱</span>
+<strong>Estou sofrendo violência digital</strong>
+Veja informações sobre segurança e preservação de provas.
+</a>
+<a class="menu-card" href="#como-ajudar">
+<span>🤝</span>
+<strong>Quero ajudar alguém</strong>
+Veja como acolher e apoiar uma mulher.
+</a>
+<a class="menu-card" href="#fontes">
+<span>📚</span>
+<strong>Quero aprender mais</strong>
+Conheça dados, leis, histórias e informações.
+</a>
+</div>
+</section>
+<!-- AJUDA IMEDIATA -->
+<section id="preciso-ajuda" class="central-ajuda">
+<h2>🚨 Precisa de ajuda agora?</h2>
+<div class="ajuda">
+<h3>🚨 Emergência — 190</h3>
+<p>
+Se a violência estiver acontecendo naquele momento ou houver
+risco imediato, acione a Polícia Militar pelo número 190.
+</p>
+<div class="acoes">
+<a class="botao botao-emergencia" href="tel:190">
+📞 Ligar 190
+</a>
+</div>
+</div>
+<div class="ajuda">
+<h3>☎️ Ligue 180</h3>
+<p>
+A Central de Atendimento à Mulher oferece orientação,
+acolhimento, registro e encaminhamento de denúncias.
+O serviço funciona 24 horas por dia.
+</p>
+<div class="acoes">
+<a class="botao" href="tel:180">
+📞 Ligar 180
+</a>
 
-<nav>
+💬 WhatsApp do 180
+</div>
+</div>
+<div class="alerta">
 
-<a href="#feminicidio">Feminicídio</a>
-<a href="#dados">Dados</a>
-<a href="#leis">Leis</a>
-<a href="#relatos">Relatos</a>
-<a href="#ajuda">Ajuda</a>
+⚠️ Importante
 
-</nav>
-
-<main>
-
+<p>
+Se você estiver em perigo, procure um local seguro e,
+quando possível, busque ajuda de uma pessoa de confiança
+ou dos serviços especializados.
+</p>
+</div>
+</section>
+<!-- PERGUNTA-PROBLEMA -->
 <section>
-
-<h2>🌷 Por que falar sobre isso?</h2>
-
-<p>
-A violência contra as mulheres é um problema social que pode acontecer
-dentro de casa, em relacionamentos, no trabalho, na escola e em outros
-espaços da sociedade.
-</p>
-
-<p>
-Ela pode aparecer de diferentes formas: violência física, psicológica,
-sexual, moral e patrimonial.
-</p>
-
+<h2>🔎 Nossa pergunta-problema</h2>
 <div class="destaque">
-
-<strong>
-Combater a violência começa com informação, respeito, prevenção e
-acesso à rede de proteção.
-</strong>
-
+<h3>Como reduzir a violência contra as mulheres?</h3>
+<p>
+Nossa pesquisa busca compreender a violência contra a mulher,
+analisar dados, conhecer a evolução das leis e identificar
+ações que podem ajudar na prevenção e proteção das vítimas.
+</p>
 </div>
-
 </section>
-
-
-<section id="feminicidio">
-
-<h2>⚠️ O que é feminicídio?</h2>
-
+<!-- QUIZ -->
+<section id="quiz">
+<h2>🧠 Você saberia identificar?</h2>
 <p>
-Feminicídio é o assassinato de uma mulher por razões da condição do sexo
-feminino. No Brasil, o feminicídio passou a ser previsto como crime
-específico pela Lei nº 13.104/2015.
+Nem toda violência deixa marcas visíveis. Teste seus
+conhecimentos com algumas situações do cotidiano.
 </p>
-
-<p>
-Ele está relacionado principalmente a situações de violência doméstica
-e familiar e ao menosprezo ou discriminação à condição de mulher.
-</p>
-
-</section>
-
-
-<section id="dados">
-
-<h2>📊 Feminicídio no Rio Grande do Sul — 2026</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<div class="numero">52</div>
-
-<p>
-feminicídios registrados no RS em 2026 até agosto, segundo dados
-divulgados pela Polícia Civil.
-</p>
-
+<div class="quiz-pergunta">
+<h3>1. Uma pessoa controla constantemente com quem sua parceira conversa e exige acesso às senhas dela.</h3>
+<button class="quiz-opcao" onclick="responderQuiz(1,true)">
+🟣 Pode ser uma forma de violência.
+</button>
+<button class="quiz-opcao" onclick="responderQuiz(1,false)">
+⚪ É apenas cuidado e não tem relação com violência.
+</button>
+<p id="quiz1"></p>
 </div>
-
+<div class="quiz-pergunta">
+<h3>2. Violência contra a mulher acontece somente quando existe agressão física.</h3>
+<button class="quiz-opcao" onclick="responderQuiz(2,false)">
+❌ Verdadeiro
+</button>
+<button class="quiz-opcao" onclick="responderQuiz(2,true)">
+✅ Falso
+</button>
+<p id="quiz2"></p>
+</div>
+<div class="quiz-pergunta">
+<h3>3. Guardar prints, links e mensagens pode ajudar a preservar provas de uma situação de violência digital.</h3>
+<button class="quiz-opcao" onclick="responderQuiz(3,true)">
+✅ Verdadeiro
+</button>
+<button class="quiz-opcao" onclick="responderQuiz(3,false)">
+❌ Falso
+</button>
+<p id="quiz3"></p>
+</div>
+<div class="quiz-resultado" id="resultadoQuiz"></div>
+</section>
+<!-- TIPOS DE VIOLÊNCIA -->
+<section>
+<h2>⚠️ O que é violência contra a mulher?</h2>
+<p>
+A violência contra a mulher não acontece somente quando existe
+agressão física. A Lei Maria da Penha reconhece diferentes
+formas de violência, incluindo física, psicológica, sexual,
+patrimonial, moral e, desde 2026, vicária.
+</p>
+<div class="grid">
 <div class="card">
+<h3>🧠 Psicológica</h3>
+<p>
+Ameaças, humilhações, manipulação, isolamento, chantagem,
+controle, perseguição e outras condutas que podem causar
+dano emocional.
+</p>
+</div>
+<div class="card">
+<h3>🩸 Física</h3>
+<p>
+Condutas que ofendam a integridade ou a saúde corporal da mulher.
+</p>
+</div>
+<div class="card">
+<h3>🚫 Sexual</h3>
+<p>
+Condutas que constranjam a mulher a participar de atividade
+sexual não desejada ou que limitem sua liberdade sexual e reprodutiva.
+</p>
+</div>
+<div class="card">
+<h3>💰 Patrimonial</h3>
+<p>
+Retenção, subtração ou destruição de documentos, bens,
+dinheiro ou recursos econômicos.
+</p>
+</div>
+<div class="card">
+<h3>🗣️ Moral</h3>
+<p>
+Calúnia, difamação ou injúria.
+</p>
+</div>
+<div class="card">
+<h3>🫂 Vicária</h3>
+<p>
+Violência praticada contra pessoas próximas ou da rede de apoio
+da mulher com a finalidade de atingi-la.
+</p>
+</div>
+</div>
+</section>
+<!-- VIOLÊNCIA DIGITAL -->
+<section id="violencia-digital">
+<h2>📱 A violência também acontece na internet</h2>
+<p>
+Redes sociais, aplicativos de mensagens e outras plataformas
+digitais podem ser utilizados para ameaçar, perseguir,
+humilhar, chantagear ou expor mulheres.
+</p>
+<div class="grid">
+<div class="card">
+<h3>📸 Exposição</h3>
+<p>
+Divulgação de imagens ou informações pessoais sem consentimento.
+</p>
+</div>
+<div class="card">
+<h3>🔐 Invasão</h3>
+<p>
+Tentativas de acessar contas, celulares ou dispositivos sem autorização.
+</p>
+</div>
+<div class="card">
+<h3>👀 Perseguição</h3>
+<p>
+Monitoramento e perseguição por redes sociais, mensagens ou outros meios.
+</p>
+</div>
+<div class="card">
+<h3>💬 Ameaças</h3>
+<p>
+Ameaças, chantagens ou humilhações realizadas por meios digitais.
+</p>
+</div>
+</div>
+<div class="destaque">
+<h3>🛡️ O que fazer?</h3>
+<p>
+Se for seguro, preserve prints, links, mensagens, datas e
+outras informações que possam ajudar a documentar a situação.
+</p>
 
+📚 Ver orientação oficial
+</div>
+</section>
+<!-- MITO OU VERDADE -->
+<section>
+<h2>💡 Mito ou verdade?</h2>
+<div class="mito">
+
+“Violência contra a mulher é somente agressão física.”
+
+<br>
+<button onclick="mostrarMito(1)">
+Ver resposta
+</button>
+<div id="mito1" class="mito-resposta">
+❌ <strong>MITO.</strong>
+A violência pode assumir diferentes formas, incluindo
+física, psicológica, sexual, patrimonial, moral e vicária.
+</div>
+</div>
+<div class="mito">
+
+“O Ligue 180 serve apenas para denúncias.”
+
+<br>
+<button onclick="mostrarMito(2)">
+Ver resposta
+</button>
+<div id="mito2" class="mito-resposta">
+❌ <strong>MITO.</strong>
+O Ligue 180 também oferece orientação sobre direitos,
+acolhimento e encaminhamento para serviços da rede de atendimento.
+</div>
+</div>
+<div class="mito">
+
+“Uma pessoa pode ajudar uma mulher procurando informação
+e indicando canais de apoio.”
+
+<br>
+<button onclick="mostrarMito(3)">
+Ver resposta
+</button>
+<div id="mito3" class="mito-resposta">
+✅ <strong>VERDADE.</strong>
+A rede de apoio pode ajudar a mulher a encontrar informações
+e serviços adequados para sua situação.
+</div>
+</div>
+</section>
+<!-- FEMINICÍDIO -->
+<section>
+<h2>🩷 O que é feminicídio?</h2>
+<p>
+Feminicídio é o assassinato de uma mulher nas circunstâncias
+definidas pela legislação como relacionadas à condição de mulher.
+Atualmente, possui tipo penal próprio no Código Penal brasileiro.
+</p>
+<div class="destaque">
+<p>
+A Lei nº 13.104/2015 criou o feminicídio como qualificadora
+do homicídio. Em 2024, a Lei nº 14.994 passou a tratar o
+feminicídio como crime autônomo, com previsão própria no
+Código Penal.
+</p>
+</div>
+</section>
+<!-- DADOS BRASIL -->
+<section>
+<h2>📊 Dados do Brasil</h2>
+<div class="grid">
+<div class="card">
+<div class="numero">848</div>
+<p>
+vítimas de feminicídio registradas no Brasil entre janeiro e
+julho de 2026.
+</p>
+</div>
+<div class="card">
+<div class="numero">-3,2%</div>
+<p>
+redução em relação ao mesmo período de 2025.
+</p>
+</div>
+</div>
+<p>
+Fonte: Sistema Nacional de Informações de Segurança Pública
+(Sinesp), Ministério da Justiça e Segurança Pública.
+</p>
+</section>
+<!-- DADOS RS -->
+<section>
+<h2>📊 Dados do Rio Grande do Sul</h2>
+<div class="grid">
+<div class="card">
 <div class="numero">46</div>
-
 <p>
-feminicídios consumados registrados pela SSP/RS entre janeiro e julho
+feminicídios consumados registrados no RS de janeiro a julho
 de 2026.
 </p>
-
 </div>
-
 <div class="card">
-
-<div class="numero">~54</div>
-
+<div class="numero">139</div>
 <p>
-estimativa simples para 10 de setembro de 2026.
+tentativas de feminicídio registradas no mesmo período.
 </p>
-
 </div>
-
+<div class="card">
+<div class="numero">5</div>
+<p>
+feminicídios registrados somente em julho de 2026.
+</p>
 </div>
-
-<div class="destaque">
-
-<h3>📌 Sobre a estimativa</h3>
-
-<p>
-O número de aproximadamente 54 até 10 de setembro é apenas uma
-projeção matemática, não um número oficial.
-</p>
-
-<p>
-Ela considera os 52 casos registrados até agosto e uma média aproximada
-de ocorrências. O número real só poderá ser confirmado pelos órgãos
-responsáveis quando os dados oficiais forem divulgados.
-</p>
-
 </div>
-
-<p class="pequeno">
-Fonte principal: Secretaria da Segurança Pública do Rio Grande do Sul
-(SSP/RS) e informações divulgadas pela Polícia Civil do RS.
-</p>
-
-</section>
-
-
-<section>
-
-<h2>📈 O que os números mostram?</h2>
-
-<p>
-Os dados mostram que a violência contra as mulheres continua sendo um
-problema grave no Rio Grande do Sul.
-</p>
-
-<p>
-Entre janeiro e junho de 2026, a SSP/RS registrou 41 feminicídios
-consumados no Estado. Entre janeiro e julho, o número chegou a 46.
-</p>
-
-<p>
-Além dos feminicídios consumados, também existem tentativas de
-feminicídio e outras formas de violência que podem acontecer antes de
-uma situação chegar ao extremo.
-</p>
-
 <div class="alerta">
 
-<strong>
-Por isso, identificar sinais de violência e procurar ajuda o quanto
-antes é fundamental.
-</strong>
+⚠️ Atenção:
 
+<p>
+Os números oficiais podem ser atualizados ou sofrer alterações
+conforme registros e investigações são consolidados.
+</p>
 </div>
-
+<p>
+Fonte principal: Secretaria da Segurança Pública do Rio Grande
+do Sul (SSP/RS).
+</p>
 </section>
-
-
-<section id="leis">
-
-<h2>⚖️ Como eram as leis antigamente?</h2>
-
+<!-- PROJEÇÃO -->
+<section>
+<h2>📈 Projeção até 10 de setembro de 2026</h2>
 <p>
-Durante muito tempo, a legislação brasileira não possuía mecanismos
-específicos tão completos para enfrentar a violência doméstica contra
-as mulheres como existem atualmente.
+Não existe ainda um número oficial fechado para o período até
+10 de setembro. Por isso, apresentamos uma projeção matemática,
+e não uma previsão oficial.
 </p>
-
-<h3>Antes da Lei Maria da Penha</h3>
-
+<div class="destaque">
+<h3>PROJEÇÃO — NÃO É DADO OFICIAL</h3>
 <p>
-Antes de 2006, não existia a Lei Maria da Penha. A violência doméstica
-era tratada por outras normas e, em muitos casos, os procedimentos
-existentes não ofereciam a mesma estrutura de proteção específica que
-a legislação atual proporciona.
+Considerando 46 feminicídios em 7 meses:
 </p>
-
+<p><strong>46 ÷ 7 ≈ 6,57 casos por mês</strong></p>
 <p>
-A criação da Lei Maria da Penha representou uma mudança importante na
-forma de prevenir, punir e combater a violência doméstica e familiar
+Mantendo essa média de forma hipotética, uma projeção simples
+até aproximadamente 10 de setembro chegaria a:
+</p>
+<div class="numero">≈ 55</div>
+<p>
+O número real pode ser maior ou menor.
+</p>
+</div>
+</section>
+<!-- DISTRIBUIÇÃO -->
+<section>
+<h2>🗺️ Distribuição dos casos</h2>
+<p>
+A violência contra a mulher ocorre em diferentes regiões do
+Rio Grande do Sul. Os dados podem ser analisados por município
+e região através das bases da Secretaria da Segurança Pública.
+</p>
+<div class="destaque">
+<h3>📍 Região Metropolitana</h3>
+<p>
+A Região Metropolitana de Porto Alegre concentra grande quantidade
+de registros, em parte por reunir uma grande população e diversos
+municípios.
+</p>
+<h3>📍 Outras regiões</h3>
+<p>
+Também existem registros nas demais regiões do estado.
+Nenhuma região está completamente livre desse problema.
+</p>
+</div>
+<p>
+<strong>Importante:</strong> quantidade absoluta de casos não é
+a mesma coisa que taxa. Para comparar regiões corretamente,
+é necessário considerar também o tamanho da população.
+</p>
+</section>
+<!-- LEIS -->
+<section>
+<h2>⚖️ Evolução das leis</h2>
+<div class="timeline">
+<article>
+<h3>2006 — Lei Maria da Penha</h3>
+<p>
+A Lei nº 11.340/2006 criou mecanismos específicos para combater
+a violência doméstica e familiar contra a mulher, incluindo
+medidas protetivas de urgência.
+</p>
+</article>
+<article>
+<h3>2012 — Lei Carolina Dieckmann</h3>
+<p>
+A Lei nº 12.737/2012 tipificou crimes informáticos, incluindo
+a invasão de dispositivo informático.
+</p>
+</article>
+<article>
+<h3>2013 — Lei do Minuto Seguinte</h3>
+<p>
+A Lei nº 12.845/2013 estabeleceu atendimento obrigatório e
+integral às pessoas em situação de violência sexual nos
+hospitais da rede SUS.
+</p>
+</article>
+<article>
+<h3>2015 — Lei do Feminicídio</h3>
+<p>
+A Lei nº 13.104/2015 incluiu o feminicídio como qualificadora
+do homicídio.
+</p>
+</article>
+<article>
+<h3>2021 — Violência psicológica</h3>
+<p>
+A Lei nº 14.188/2021 criou o crime de violência psicológica
 contra a mulher.
 </p>
-
-<h3>📅 2006 — Lei Maria da Penha</h3>
-
+</article>
+<article>
+<h3>2024 — Feminicídio como crime autônomo</h3>
 <p>
-A Lei nº 11.340/2006 criou mecanismos para combater a violência
-doméstica e familiar contra a mulher e estabeleceu medidas de proteção,
-como as medidas protetivas de urgência.
+A Lei nº 14.994/2024 tornou o feminicídio um crime autônomo
+no Código Penal.
 </p>
-
-<h3>📅 2015 — Lei do Feminicídio</h3>
-
+</article>
+<article>
+<h3>2026 — Novas medidas de proteção</h3>
 <p>
-A Lei nº 13.104/2015 alterou o Código Penal e passou a prever o
-feminicídio como circunstância qualificadora do homicídio, além de
-incluí-lo no rol dos crimes hediondos.
+Novas medidas ampliaram a proteção às mulheres, incluindo
+medidas relacionadas à violência vicária e à monitoração
+eletrônica de agressores.
 </p>
-
-<h3>📅 2024 — Feminicídio como crime autônomo</h3>
-
-<p>
-A Lei nº 14.994/2024 tornou o feminicídio um crime autônomo e aumentou
-a proteção penal relacionada a esse tipo de violência.
-</p>
-
+</article>
+</div>
 </section>
-
-
-<section id="relatos">
-
-<h2>🗣️ Relatos de mulheres</h2>
-
-<div class="destaque">
-
-<p>
-<strong>Importante:</strong> os relatos abaixo são histórias
-educativas, construídas de forma anônima e sem identificação de pessoas
-reais. Eles representam situações que podem acontecer em contextos de
-violência e não devem ser apresentados como entrevistas reais.
-</p>
-
-</div>
-
-<div class="relato">
-
-<h3>Relato 1 — "Eu achei que era cuidado"</h3>
-
-<p>
-"Ele começou perguntando onde eu estava e com quem eu estava. Depois
-passou a querer controlar minhas roupas, minhas amizades e meu celular.
-Eu achava que aquilo era ciúme porque ele gostava de mim.
-</p>
-
-<p>
-Com o tempo percebi que não era cuidado. Era controle. Quando consegui
-falar com uma pessoa de confiança, comecei a entender que eu tinha
-direito de pedir ajuda."
-</p>
-
-</div>
-
-<div class="relato">
-
-<h3>Relato 2 — "As marcas não eram só no corpo"</h3>
-
-<p>
-"Depois de sair daquela situação, eu percebi que as marcas não estavam
-apenas no meu corpo. Eu tinha medo, insegurança e dificuldade para
-confiar nas pessoas.
-</p>
-
-<p>
-A recuperação foi acontecendo aos poucos, com apoio de pessoas em quem
-eu confiava e com ajuda profissional."
-</p>
-
-</div>
-
-<div class="relato">
-
-<h3>Relato 3 — "Pedir ajuda não foi fraqueza"</h3>
-
-<p>
-"Eu tinha vergonha de contar o que estava acontecendo porque achava
-que ninguém acreditaria em mim.
-</p>
-
-<p>
-Quando finalmente procurei ajuda, percebi que não precisava enfrentar
-aquilo sozinha."
-</p>
-
-</div>
-
-</section>
-
-
+<!-- ANTES DE 2006 -->
 <section>
-
-<h2>🚩 Alguns sinais de violência</h2>
-
+<h2>🕰️ Como eram as leis antes de 2006?</h2>
+<p>
+Antes da Lei Maria da Penha, o Brasil não possuía a atual
+estrutura específica para enfrentar a violência doméstica
+e familiar contra a mulher.
+</p>
+<p>
+A Lei Maria da Penha representou uma mudança importante ao
+estabelecer mecanismos específicos de prevenção, proteção
+e responsabilização.
+</p>
+<div class="frase">
+2006 marcou uma mudança importante na proteção das mulheres.
+</div>
+</section>
+<!-- MARIA DA PENHA -->
+<section>
+<h2>📜 Lei Maria da Penha</h2>
+<div class="grid">
+<div class="card">
+<h3>🛡️ Medidas protetivas</h3>
+<p>
+Podem determinar, entre outras medidas, afastamento do agressor
+e proibição de contato ou aproximação.
+</p>
+</div>
+<div class="card">
+<h3>🏠 Proteção</h3>
+<p>
+A legislação prevê mecanismos para proteger a mulher e seus
+dependentes.
+</p>
+</div>
+<div class="card">
+<h3>⚖️ Responsabilização</h3>
+<p>
+A lei criou mecanismos específicos para enfrentar a violência
+doméstica e familiar.
+</p>
+</div>
+</div>
+</section>
+<!-- ATUALIZAÇÕES 2026 -->
+<section>
+<h2>🆕 Atualizações de 2026</h2>
+<div class="destaque">
+<h3>Violência vicária</h3>
+<p>
+A Lei nº 15.384/2026 incluiu a violência vicária entre as formas
+de violência doméstica e familiar contra a mulher.
+</p>
+<p>
+Ela pode ocorrer quando alguém utiliza pessoas ligadas à mulher
+para causar sofrimento, punição ou controle.
+</p>
+</div>
+<div class="destaque">
+<h3>Monitoração eletrônica</h3>
+<p>
+Mudanças legislativas de 2026 também ampliaram mecanismos de
+monitoração eletrônica de agressores em determinadas situações.
+</p>
+</div>
+</section>
+<!-- HISTÓRIAS -->
+<section>
+<h2>👩 Histórias que não são apenas números</h2>
+<p>
+Por trás das estatísticas existem mulheres reais, com histórias
+de violência, resistência e reconstrução.
+</p>
+<div class="destaque">
+<h3>🎧 Atena: Elas por Elas</h3>
+<p>
+O Conselho Nacional de Justiça reúne histórias reais de mulheres
+que enfrentaram diferentes formas de violência no podcast
+“Atena: Elas por Elas”.
+</p>
+<p>
+Esses relatos ajudam a mostrar que cada estatística representa
+uma vida.
+</p>
+</div>
+<p>
+<strong>Fonte:</strong> Conselho Nacional de Justiça.
+</p>
+</section>
+<!-- MARCAS -->
+<section>
+<h2>🧠 As marcas da violência</h2>
+<p>
+Mesmo quando a agressão física termina, suas consequências podem
+continuar. A violência pode afetar autoestima, sensação de
+segurança, relacionamentos, estudos, trabalho e bem-estar.
+</p>
+<div class="frase">
+Sobreviver à violência não significa que suas marcas desaparecem imediatamente.
+</div>
+</section>
+<!-- ESCOLA -->
+<section>
+<h2>🏫 Papel da escola</h2>
+<div class="grid">
+<div class="card">
+<h3>📚 Educação</h3>
+<p>
+Ensinar respeito, igualdade e direitos.
+</p>
+</div>
+<div class="card">
+<h3>👂 Escuta</h3>
+<p>
+Criar um ambiente em que estudantes possam procurar ajuda.
+</p>
+</div>
+<div class="card">
+<h3>🚨 Prevenção</h3>
+<p>
+Ensinar a reconhecer sinais de violência e relacionamentos abusivos.
+</p>
+</div>
+<div class="card">
+<h3>🤝 Encaminhamento</h3>
+<p>
+Orientar estudantes a procurar adultos responsáveis e serviços
+de proteção quando necessário.
+</p>
+</div>
+</div>
+</section>
+<!-- COMO AJUDAR -->
+<section id="como-ajudar">
+<h2>🤝 Quero ajudar alguém</h2>
+<p>
+Às vezes, você pode ser a primeira pessoa a perceber que algo
+está errado.
+</p>
+<div class="grid">
+<div class="card">
+<h3>💜 Escute</h3>
+<p>
+Ouça sem interromper e sem julgar.
+</p>
+</div>
+<div class="card">
+<h3>🫂 Acolha</h3>
+<p>
+Evite culpar a mulher pelo que aconteceu.
+</p>
+</div>
+<div class="card">
+<h3>📚 Informe</h3>
+<p>
+Ajude a encontrar informações e canais de apoio confiáveis.
+</p>
+</div>
+<div class="card">
+<h3>🛡️ Respeite</h3>
+<p>
+Respeite o tempo e as decisões da mulher, considerando sempre
+a segurança.
+</p>
+</div>
+</div>
+</section>
+<!-- SOCIEDADE -->
+<section>
+<h2>🌎 Papel da sociedade</h2>
+<p>
+Combater a violência contra a mulher não é responsabilidade
+somente da vítima ou do governo.
+</p>
+<div class="grid">
+<div class="card">
+<h3>❌ Não normalizar</h3>
+<p>
+Piadas, controle, ameaças e comportamentos abusivos não devem
+ser tratados como normais.
+</p>
+</div>
+<div class="card">
+<h3>💜 Apoiar</h3>
+<p>
+Ouvir a vítima sem culpá-la e ajudá-la a encontrar caminhos seguros.
+</p>
+</div>
+<div class="card">
+<h3>📢 Denunciar</h3>
+<p>
+Acionar os canais de ajuda quando houver violência ou situação
+de risco.
+</p>
+</div>
+<div class="card">
+<h3>📚 Conscientizar</h3>
+<p>
+Promover informação e educação para prevenir a violência.
+</p>
+</div>
+</div>
+</section>
+<!-- RESPOSTA -->
+<section>
+<h2>💡 Nossa resposta à pergunta-problema</h2>
+<div class="destaque">
+<h3>Como reduzir a violência contra as mulheres?</h3>
+<p>
+Não existe uma única solução. É necessário combinar prevenção,
+educação, proteção, responsabilização e acesso à informação.
+</p>
 <ul>
-
-<li>Controle excessivo sobre onde a mulher vai.</li>
-
-<li>Proibição de conversar com amigos ou familiares.</li>
-
-<li>Ciúmes usados como justificativa para controlar.</li>
-
-<li>Ameaças ou chantagens.</li>
-
-<li>Humilhações e insultos.</li>
-
-<li>Controle de dinheiro ou documentos.</li>
-
-<li>Violência física.</li>
-
-<li>Violência sexual.</li>
-
-<li>Perseguição ou monitoramento constante.</li>
-
-<li>Ameaças contra filhos, familiares ou animais.</li>
-
+<li>Educação para o respeito e igualdade;</li>
+<li>Identificação precoce de situações abusivas;</li>
+<li>Fortalecimento da rede de proteção;</li>
+<li>Aplicação efetiva das leis;</li>
+<li>Acesso rápido aos canais de ajuda;</li>
+<li>Campanhas de conscientização;</li>
+<li>Apoio às sobreviventes;</li>
+<li>Análise de dados para orientar políticas públicas.</li>
 </ul>
-
-<p>
-Nenhum desses comportamentos deve ser normalizado.
-</p>
-
-</section>
-
-
-<section id="ajuda">
-
-<h2>🆘 Como uma mulher pode pedir ajuda?</h2>
-
-<div class="alerta">
-
-<h3>Se houver perigo imediato:</h3>
-
-<p>
-<strong>Ligue para 190 — Polícia Militar.</strong>
-</p>
-
-<p>
-Se houver risco imediato, procure um lugar seguro e, se possível,
-vá para perto de pessoas de confiança.
-</p>
-
 </div>
-
-<h3>📞 Ligue 180</h3>
-
-<p>
-O Ligue 180 é a Central de Atendimento à Mulher. O serviço oferece
-informações, orientação e encaminhamento relacionados à violência
-contra a mulher.
-</p>
-
-<h3>👮 Delegacia</h3>
-
-<p>
-A mulher pode procurar uma Delegacia da Mulher (DEAM), quando houver
-uma na região, ou outra unidade policial.
-</p>
-
-<h3>👩‍⚖️ Defensoria Pública</h3>
-
-<p>
-A Defensoria Pública pode orientar mulheres que precisam de assistência
-jurídica e informações sobre seus direitos.
-</p>
-
-<h3>🏥 Saúde</h3>
-
-<p>
-Em situações de violência física ou sexual, também é possível procurar
-uma unidade de saúde para receber atendimento.
-</p>
-
-<h3>🤝 Pessoas de confiança</h3>
-
-<p>
-Uma mulher pode procurar alguém de confiança, como familiar, amiga,
-professora, profissional da escola ou outra pessoa adulta que possa
-ajudá-la a chegar até um serviço de proteção.
-</p>
-
-<div class="destaque">
-
-<strong>
-Pedir ajuda não é culpa, vergonha ou fraqueza. A violência nunca é
-culpa da vítima.
-</strong>
-
-</div>
-
 </section>
-
-
+<!-- CONCLUSÃO -->
 <section>
-
-<h2>💡 O que podemos fazer para reduzir a violência?</h2>
-
+<h2>💜 Conclusão</h2>
+<p>
+As leis brasileiras evoluíram e hoje existem mais mecanismos
+de proteção às mulheres. Porém, a existência de leis, sozinha,
+não elimina a violência.
+</p>
+<p>
+A prevenção precisa começar antes que a violência chegue ao
+extremo. Escola, família, sociedade, serviços públicos e
+poder público possuem papéis importantes.
+</p>
+<div class="frase">
+Não são apenas números.<br>
+São mulheres.<br>
+São histórias.<br>
+São vidas.
+</div>
+</section>
+<!-- FONTES -->
+<section id="fontes">
+<h2>📚 Fontes e informações oficiais</h2>
 <ul>
-
-<li>Ensinar desde cedo sobre respeito e igualdade.</li>
-
-<li>Combater o machismo e comportamentos de controle.</li>
-
-<li>Ensinar jovens a reconhecer sinais de relacionamentos abusivos.</li>
-
-<li>Facilitar o acesso das mulheres à informação.</li>
-
-<li>Fortalecer os serviços de proteção.</li>
-
-<li>Incentivar denúncias e pedidos de ajuda.</li>
-
-<li>Proteger mulheres que procuram ajuda.</li>
-
-<li>Promover educação sobre direitos e leis.</li>
-
-<li>Não culpar a vítima pela violência sofrida.</li>
-
-<li>Envolver escolas, famílias, sociedade e órgãos públicos.</li>
-
+<li>
+Secretaria da Segurança Pública do Rio Grande do Sul — SSP/RS.
+</li>
+<li>
+Ministério da Justiça e Segurança Pública — Sinesp.
+</li>
+<li>
+Planalto — legislação federal brasileira.
+</li>
+<li>
+Ministério das Mulheres — Ligue 180.
+</li>
+<li>
+Conselho Nacional de Justiça — Atena: Elas por Elas.
+</li>
 </ul>
+<div class="acoes">
 
-</section>
-
-
-<section>
-
-<h2>🔬 Conclusão do projeto</h2>
-
-<p>
-A violência contra as mulheres não começa necessariamente com uma
-agressão física. Muitas vezes, ela pode começar com controle,
-humilhação, ameaças, isolamento ou outras formas de violência.
-</p>
-
-<p>
-Por isso, a prevenção é fundamental.
-</p>
-
-<p>
-A informação pode ajudar uma mulher a reconhecer uma situação de
-violência, conhecer seus direitos e procurar ajuda.
-</p>
-
-<div class="destaque">
-
-<h3>
-🌷 Informação também é uma forma de proteção.
-</h3>
-
-<p>
-Reduzir a violência contra as mulheres depende da participação de toda
-a sociedade.
-</p>
-
+🔗 Site oficial do Ligue 180
+🔗 Violência digital
 </div>
-
 </section>
-
-
+<!-- FINAL -->
 <section>
+<div class="frase">
 
-<h2>📚 Fontes para pesquisa</h2>
+💜 Uma informação pode fazer a diferença.
 
-<p>
-<strong>Secretaria da Segurança Pública do Rio Grande do Sul —
-Indicadores da Violência Contra a Mulher:</strong>
+<p style="font-size:17px;font-weight:normal;">
+Você pode não precisar dessas informações hoje.
+Mas alguém próximo pode precisar amanhã.
 </p>
-
-<p>
-https://www.ssp.rs.gov.br/indicadores-da-violencia-contra-a-mulher
-</p>
-
-<p>
-<strong>Secretaria da Segurança Pública do RS — Estatísticas:</strong>
-</p>
-
-<p>
-https://www.ssp.rs.gov.br/estatisticas
-</p>
-
-<p>
-<strong>Planalto — Legislação Federal:</strong>
-</p>
-
-<p>
-https://www.planalto.gov.br/
-</p>
-
-<p>
-<strong>Ministério das Mulheres — Ligue 180:</strong>
-</p>
-
-<p>
-https://www.gov.br/mulheres/
-</p>
-
+</div>
+<div class="voltar">
+<a class="botao" href="#inicio">
+⬆️ Voltar ao início
+</a>
+</div>
 </section>
-
-</main>
-
-
+</div>
 <footer>
-
-<strong>
-Projeto científico — Como reduzir a violência contra as mulheres?
-</strong>
-
-<br><br>
-
-"Antes que seja tarde, precisamos reconhecer os sinais,
-informar, proteger e agir."
-
-<br><br>
-
+<p><strong>Não são apenas números — 2026</strong></p>
 <p>
-Trabalho escolar — 2026
+Projeto científico sobre violência contra a mulher.
 </p>
-
+<p>
+Informação pode prevenir. Conhecimento pode proteger.
+</p>
+<p>
+Fontes oficiais utilizadas para os canais de atendimento:
+Ministério das Mulheres.
+</p>
 </footer>
-
+<script>
+let acertos = 0;
+let respondidas = 0;
+function responderQuiz(numero, correta){
+const campo = document.getElementById("quiz" + numero);
+if(campo.dataset.respondida === "sim"){
+return;
+}
+campo.dataset.respondida = "sim";
+respondidas++;
+if(correta){
+acertos++;
+campo.innerHTML =
+"✅ <strong>Resposta correta!</strong> Essa situação pode estar relacionada à violência psicológica e ao controle.";
+campo.style.color="#28733f";
+}else{
+campo.innerHTML =
+"❌ <strong>Resposta incorreta.</strong> Controle, vigilância e restrição da autonomia podem fazer parte da violência psicológica.";
+campo.style.color="#9b263d";
+}
+if(respondidas === 3){
+const resultado = document.getElementById("resultadoQuiz");
+resultado.style.display="block";
+resultado.innerHTML =
+"<strong>🎯 Resultado:</strong> Você acertou " +
+acertos +
+" de 3 perguntas. 💜<br><br>" +
+"Continue explorando o site para aprender mais sobre prevenção, proteção e canais de ajuda.";
+}
+}
+function mostrarMito(numero){
+const elemento = document.getElementById("mito" + numero);
+if(elemento.style.display === "block"){
+elemento.style.display = "none";
+}else{
+elemento.style.display = "block";
+}
+}
+</script>
 </body>
 </html>
